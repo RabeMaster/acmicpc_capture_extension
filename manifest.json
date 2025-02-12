@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "백준 문제 도구",
+    "version": "1.0",
+    "description": "블로그 게시글용 백준 문제 캡쳐해주는 확장 프로그램",
+    "permissions": [
+        "scripting",
+        "contextMenus",
+        "activeTab",
+        "clipboardWrite"
+    ],
+    "host_permissions": [
+        "https://www.acmicpc.net/problem/*"
+    ],
+    "icons": {
+        "16": "images/icon.png",
+        "32": "images/icon.png",
+        "48": "images/icon.png",
+        "128": "images/icon.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.acmicpc.net/problem/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}
