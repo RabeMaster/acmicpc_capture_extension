@@ -7,7 +7,12 @@ chrome.runtime.onInstalled.addListener(() => {
         contexts: ["all"],
         documentUrlPatterns: URL
     });
-
+    chrome.contextMenus.create({
+        id: "copyTag",
+        title: "문제 분류 복사하기",
+        contexts: ["all"],
+        documentUrlPatterns: URL
+    });
     chrome.contextMenus.create({
         id: "captureImage",
         title: "문제 캡처하기",
@@ -19,6 +24,9 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.contextMenus.onClicked.addListener((info, tab) => {
     if (info.menuItemId === "copyTitle") {
         chrome.tabs.sendMessage(tab.id, { action: "copyTitle" });
+    }
+    else if (info.menuItemId === "copyTag") {
+        chrome.tabs.sendMessage(tab.id, { action: "copyTag" });
     }
     else if (info.menuItemId === "captureImage") {
         chrome.tabs.captureVisibleTab(null, { format: "png" }, (dataUrl) => {
