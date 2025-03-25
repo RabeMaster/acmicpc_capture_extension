@@ -1,16 +1,15 @@
 {
     "manifest_version": 3,
     "name": "백준 문제 도구",
-    "version": "1.0",
+    "version": "2.0",
     "description": "블로그 게시글용 백준 문제 캡쳐해주는 확장 프로그램",
     "permissions": [
-        "scripting",
-        "contextMenus",
         "activeTab",
-        "clipboardWrite"
+        "clipboardWrite",
+        "scripting"
     ],
     "host_permissions": [
-        "https://www.acmicpc.net/problem/*"
+        "<all_urls>"
     ],
     "icons": {
         "16": "images/icon.png",
